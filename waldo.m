@@ -26,6 +26,15 @@
     
 %Train a cascade object detector called 'stopSignDetector.xml' 
 %NOTE: The command can takes 20 minutes to run.
+% trainCascadeObjectDetector('WaldoDetector.xml',positiveInstances,negativeFolder,'FalseAlarmRate',0.5,'NumCascadeStages',3, 'FeatureType','HOG'); %default 'FeatureType'
+% trainCascadeObjectDetector('WaldoDetector1.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.5,'NumCascadeStages',3, 'FeatureType','HOG'); %default 'FeatureType'
+% trainCascadeObjectDetector('WaldoDetector2.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.75,'NumCascadeStages',3,'FeatureType','HOG'); %default 'FeatureType'
+% trainCascadeObjectDetector('WaldoDetector3.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.5,'NumCascadeStages',3,'FeatureType', 'LBP');
+% trainCascadeObjectDetector('WaldoDetector4.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.5,'NumCascadeStages',10,'FeatureType','HOG');
+% trainCascadeObjectDetector('WaldoDetector5.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.5,'NumCascadeStages',10,'ObjectTrainingSize', [110,70]);
+% trainCascadeObjectDetector('WaldoDetector6.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.25,'NumCascadeStages',10,'ObjectTrainingSize', [110,70]);
+% trainCascadeObjectDetector('WaldoDetector7.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.25,'NumCascadeStages',20,'ObjectTrainingSize', [110,70]);
+% trainCascadeObjectDetector('WaldoDetector8.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.15,'NumCascadeStages',10,'ObjectTrainingSize', [110,70], 'TruePositiveRate', 0.997);
 
 % trainCascadeObjectDetector('WaldoDetector10.xml',positiveInstances1,negativeFolder,'FalseAlarmRate',0.005,'NumCascadeStages',9,'ObjectTrainingSize', [100,60], 'TruePositiveRate', 0.998); %limit of cascade stages and false alarm rate
 % trainCascadeObjectDetector('WaldoDetector11.xml',positiveInstances2,negativeFolder,'FalseAlarmRate',0.005,'NumCascadeStages',9,'ObjectTrainingSize', [70,60], 'TruePositiveRate', 0.998); 
@@ -36,7 +45,7 @@ trainCascadeObjectDetector('WaldoDetector14.xml',positiveInstances3,negativeFold
 
 %% Use the newly trained classifier to detect a stop sign in an image.
 % detector = vision.CascadeObjectDetector('WaldoDetector.xml');
-detector = vision.CascadeObjectDetector('WaldoDetector14.xml');
+detector = vision.CascadeObjectDetector('WaldoDetector11.xml');
 
 % Read the test image.
 	img = imread('WaldoTest_small.jpg');
@@ -52,3 +61,5 @@ detector = vision.CascadeObjectDetector('WaldoDetector14.xml');
 %Display the detected stop sign.
 	figure; imshow(detectedImg);
 toc
+
+
